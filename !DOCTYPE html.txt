@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Shift | Sakshi Sarkar - CBT, REBT & NLP Coach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#f8f5ee',
+                            200: '#f0e9dd',
+                            300: '#e3d6c4',
+                        },
+                        taupe: {
+                            400: '#caad95',
+                            500: '#b49277',
+                            600: '#9b765d',
+                            700: '#7e5c46',
+                        },
+                        rose: {
+                            50: '#faf2ef',
+                            100: '#f2e3de',
+                        },
+                        charcoal: {
+                            700: '#4a4846',
+                            800: '#333130',
+                            900: '#22201f',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f5ee;
+            color: #333130;
+        }
+        h1, h2, h3, .font-serif-custom {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .glass-header {
+            background: rgba(248, 245, 238, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        .soft-card {
+            background-color: #fdfbf7;
+            border: 1px solid #e3d6c4;
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            border-color: #b49277;
+            transform: translateY(-2px);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .accordion-content.active {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-cream-100 text-charcoal-800 antialiased selection:bg-taupe-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 border-b border-cream-200">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-taupe-500 text-white flex items-center justify-center font-serif text-lg italic shadow-sm">
+                    S
+                </div>
+                <div>
+                    <span class="font-serif text-2xl md:text-3xl text-charcoal-900 font-medium tracking-tight block leading-none">Inner Shift</span>
+                    <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-sans font-semibold">Sakshi Sarkar</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold tracking-widest uppercase text-charcoal-700">
+                <a href="#home" class="hover:text-taupe-600 transition-colors">Home</a>
+                <a href="#about" class="hover:text-taupe-600 transition-colors">Meet Sakshi</a>
+                <a href="#services" class="hover:text-taupe-600 transition-colors">Services</a>
+                <a href="#why-inner-shift" class="hover:text-taupe-600 transition-colors">Why Inner Shift</a>
+                <a href="#support" class="hover:text-taupe-600 transition-colors">How I Support You</a>
+                <a href="#fees" class="hover:text-taupe-600 transition-colors">Fees</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center">
+                <a href="#contact" class="px-6 py-2.5 bg-charcoal-900 text-cream-50 text-xs tracking-widest uppercase hover:bg-taupe-600 transition-all duration-300 rounded-none shadow-sm">
+                    Book a Session
+                </a>
+            </div>
+
+            <!-- Mobile Menu Trigger -->
+            <button id="mobile-menu-btn" class="lg:hidden text-charcoal-900 p-2 focus:outline-none" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 top-[70px] bg-cream-100 z-40 px-8 py-10 flex flex-col justify-between border-t border-cream-300">
+            <nav class="flex flex-col space-y-6 text-xl font-serif">
+                <a href="#home" class="mobile-link text-charcoal-900 hover:text-taupe-600">Home</a>
+                <a href="#about" class="mobile-link text-charcoal-900 hover:text-taupe-600">Meet Sakshi</a>
+                <a href="#services" class="mobile-link text-charcoal-900 hover:text-taupe-600">Services</a>
+                <a href="#why-inner-shift" class="mobile-link text-charcoal-900 hover:text-taupe-600">Why Inner Shift</a>
+                <a href="#support" class="mobile-link text-charcoal-900 hover:text-taupe-600">How I Support You</a>
+                <a href="#fees" class="mobile-link text-charcoal-900 hover:text-taupe-600">Session Fees</a>
+                <a href="#contact" class="mobile-link text-charcoal-900 hover:text-taupe-600">Contact & Booking</a>
+            </nav>
+            <div class="pt-6 border-t border-cream-300">
+                <a href="#contact" class="mobile-link block text-center w-full py-3.5 bg-charcoal-900 text-cream-50 uppercase text-xs tracking-widest">
+                    Schedule Your Session
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-44 md:pb-28 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <div class="lg:col-span-7 space-y-8">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-rose-50 border border-cream-300 text-[11px] tracking-widest uppercase text-taupe-700 font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-taupe-500"></span>
+                    CBT • REBT • NLP Coach &amp; Relationship Guidance
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif text-charcoal-900 leading-[1.12] tracking-tight">
+                    Healing Begins When You Finally Feel Safe Enough to Be Yourself.
+                </h1>
+                
+                <p class="text-lg md:text-xl text-charcoal-700 font-light leading-relaxed max-w-xl">
+                    Gentle one-to-one emotional clarity, relationship guidance, and personal shift for women who are tired of holding everything together alone.
+                </p>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+                    <a href="#contact" class="px-8 py-4 bg-charcoal-900 text-cream-50 text-xs tracking-widest uppercase hover:bg-taupe-600 transition-all text-center">
+                        Get in Touch
+                    </a>
+                    <a href="#about" class="px-8 py-4 border border-cream-300 text-charcoal-800 text-xs tracking-widest uppercase hover:bg-cream-200 transition-all text-center">
+                        Meet Sakshi
+                    </a>
+                </div>
+
+                <!-- Subtle Credentials Banner -->
+                <div class="pt-8 border-t border-cream-300 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-charcoal-700">
+                    <div>
+                        <span class="block font-serif text-lg text-charcoal-900 font-semibold">1-on-1 Online</span>
+                        <span class="text-charcoal-700 font-light">Confidential Sessions</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-lg text-charcoal-900 font-semibold">Safe Space</span>
+                        <span class="text-charcoal-700 font-light">For Women</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-lg text-charcoal-900 font-semibold">Evidence-Based</span>
+                        <span class="text-charcoal-700 font-light">CBT, REBT &amp; NLP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Frame -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative z-10 bg-cream-200 p-3 border border-cream-300 shadow-md">
+                    <img src="Counselling Website Portrait (3).png" 
+                         alt="Sakshi Sarkar - Counselor & Coach" 
+                         class="w-full h-[480px] sm:h-[540px] object-cover object-top">
+                </div>
+                <div class="absolute -bottom-5 -right-5 w-full h-full border border-taupe-400 -z-0 hidden sm:block"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Meet Sakshi Section -->
+    <section id="about" class="py-24 bg-cream-200/50 border-y border-cream-300 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5">
+                <div class="relative bg-cream-100 p-3 border border-cream-300 shadow-sm">
+                    <img src="Counselling Website Portrait (2).png" 
+                         alt="Sakshi Sarkar Portrait" 
+                         class="w-full h-[520px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-6">
+                <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block">Meet Your Counselor</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">
+                    Hi, I’m Sakshi — and I believe healing begins when you finally feel safe enough to be yourself.
+                </h2>
+
+                <div class="space-y-4 text-charcoal-700 font-light leading-relaxed text-base sm:text-lg">
+                    <p>
+                        Through <strong>Inner Shift</strong>, I hold gentle one-to-one spaces for women who have been carrying too much for too long. Who feel emotionally overwhelmed, stretched too thin, or quietly disconnected from themselves.
+                    </p>
+                    <p>
+                        Many of the women I work with are strong on the outside — responsible, caring, and constantly giving — yet inside, they feel tired, confused, or unsure of their own needs.
+                    </p>
+                    <p>
+                        My work is rooted in emotional awareness, self-worth, and learning how to create healthy inner and outer boundaries — not through force or fixing, but through understanding and compassion. I believe that healing doesn’t begin by changing who you are, but by meeting yourself honestly and gently, exactly where you are right now.
+                    </p>
+                    <p>
+                        In our sessions, you don’t have to perform strength, explain your pain, or rush your healing. This is a space where your emotions are listened to with care, your experiences are respected, and your pace is always honored. I don’t see you as something to be “fixed” — I see you as someone who deserves safety, clarity, and self-trust.
+                    </p>
+                    <p>
+                        My role is not to tell you who you should be, but to walk beside you as you reconnect with yourself, understand your emotional patterns, and begin choosing from a place of awareness rather than obligation or guilt.
+                    </p>
+                    <p class="font-serif italic text-xl text-charcoal-900 pt-2 border-t border-cream-300">
+                        This work is slow, intentional, and deeply human. It’s about learning to feel again without fear, to choose yourself without guilt, and to build a relationship with yourself that feels safe and steady.
+                    </p>
+                </div>
+
+                <!-- Professional Specializations Tags -->
+                <div class="pt-4 flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-cream-100 border border-cream-300 text-xs font-medium text-charcoal-800">CBT Practitioner</span>
+                    <span class="px-3 py-1.5 bg-cream-100 border border-cream-300 text-xs font-medium text-charcoal-800">REBT Emotional Coach</span>
+                    <span class="px-3 py-1.5 bg-cream-100 border border-cream-300 text-xs font-medium text-charcoal-800">NLP Practitioner</span>
+                    <span class="px-3 py-1.5 bg-cream-100 border border-cream-300 text-xs font-medium text-charcoal-800">Relationship Counselor</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+            <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold">Specialized Practice</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900">How We Can Work Together</h2>
+            <p class="text-charcoal-700 font-light text-base sm:text-lg">
+                Every session is a gentle, confidential space built around emotional clarity, self-worth, and inner stability.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Service 1 -->
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-rose-50 border border-cream-300 flex items-center justify-center text-taupe-600">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal-900">Relationship Counseling &amp; Guidance</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                        Navigate emotional conflicts, attachment patterns, communication breakdowns, and restore mutual understanding or personal clarity in your relationships.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-cream-200 mt-6">
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-taupe-700 font-semibold hover:text-charcoal-900">
+                        Inquire for Session <i class="fa-solid fa-arrow-right-long text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-rose-50 border border-cream-300 flex items-center justify-center text-taupe-600">
+                        <i class="fa-solid fa-brain text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal-900">CBT &amp; REBT Emotional Coaching</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                        Identify unhelpful thought loops, irrational beliefs, and anxiety triggers. Reframe your cognitive patterns with structured, gentle tools.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-cream-200 mt-6">
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-taupe-700 font-semibold hover:text-charcoal-900">
+                        Inquire for Session <i class="fa-solid fa-arrow-right-long text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-rose-50 border border-cream-300 flex items-center justify-center text-taupe-600">
+                        <i class="fa-solid fa-feather-pointed text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal-900">NLP &amp; Mindset Shift Coaching</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                        Reprogram internal self-talk, release emotional baggage, and realign your daily habits with your core values and inner calm.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-cream-200 mt-6">
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-taupe-700 font-semibold hover:text-charcoal-900">
+                        Inquire for Session <i class="fa-solid fa-arrow-right-long text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-rose-50 border border-cream-300 flex items-center justify-center text-taupe-600">
+                        <i class="fa-solid fa-shield-halved text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal-900">Boundary Work &amp; Self-Worth</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                        Learn to say 'no' without guilt, set clear boundaries with family/work, and rebuild an authentic sense of inner self-worth.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-cream-200 mt-6">
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-taupe-700 font-semibold hover:text-charcoal-900">
+                        Inquire for Session <i class="fa-solid fa-arrow-right-long text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-rose-50 border border-cream-300 flex items-center justify-center text-taupe-600">
+                        <i class="fa-solid fa-spa text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal-900">Emotional Clarity &amp; Stress Relief</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                        Dedicated guidance for women facing burnout, overwhelming transitions, and feeling disconnected from their personal joy.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-cream-200 mt-6">
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-taupe-700 font-semibold hover:text-charcoal-900">
+                        Inquire for Session <i class="fa-solid fa-arrow-right-long text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Special Session Box -->
+            <div class="p-8 bg-taupe-600 text-cream-50 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <span class="text-[11px] uppercase tracking-widest text-cream-200 font-semibold block">Getting Started</span>
+                    <h3 class="font-serif text-3xl text-white">First Discovery Conversation</h3>
+                    <p class="text-sm text-cream-100 font-light leading-relaxed">
+                        Not sure where to begin? Start with an introductory conversation to share what you're experiencing and explore if we are a good fit.
+                    </p>
+                </div>
+                <a href="#contact" class="mt-8 block text-center py-3 bg-cream-50 text-charcoal-900 uppercase text-xs tracking-widest font-semibold hover:bg-cream-200 transition-colors">
+                    Book Discovery Call
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why I Created Inner Shift Section -->
+    <section id="why-inner-shift" class="py-24 bg-cream-200/60 border-y border-cream-300 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6 space-y-8">
+                <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block">The Story &amp; Purpose</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">
+                    Why I Created Inner Shift
+                </h2>
+
+                <div class="space-y-6 text-charcoal-700 font-light leading-relaxed text-lg">
+                    <p class="border-l-2 border-taupe-500 pl-6 italic font-serif text-2xl text-charcoal-900">
+                        "I created Inner Shift because I know what it feels like to carry too much — silently."
+                    </p>
+                    <p>
+                        To be the one who holds everything together on the outside, while feeling unsure, tired, or disconnected inside.
+                    </p>
+                    <p>
+                        I believe healing doesn’t happen through pressure or fixing. It happens when someone feels safe enough to slow down, feel honestly, and reconnect with themselves — at their own pace.
+                    </p>
+                    <p>
+                        This work comes from lived understanding, deep listening, and respect for the emotional journey each person is on.
+                    </p>
+                </div>
+
+                <div class="pt-4">
+                    <a href="#contact" class="inline-block px-8 py-4 bg-charcoal-900 text-cream-50 text-xs tracking-widest uppercase hover:bg-taupe-600 transition-all">
+                        Begin Your Inner Shift
+                    </a>
+                </div>
+            </div>
+
+            <!-- Counseling Session Photo -->
+            <div class="lg:col-span-6">
+                <div class="bg-cream-100 p-3 border border-cream-300 shadow-sm relative">
+                    <img src="Counselling Session Photo (1).png" 
+                         alt="Inner Shift Counseling Session Environment" 
+                         class="w-full h-[460px] object-cover">
+                    <div class="p-6 bg-cream-50 border-t border-cream-300 mt-2 text-center">
+                        <p class="font-serif italic text-xl text-charcoal-900">"Presence over advice — no fixing, no pressure."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How I Support You Section -->
+    <section id="support" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+            <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold">The Session Framework</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900">How I Support You</h2>
+            <p class="text-charcoal-700 font-light text-base sm:text-lg">
+                This work is not about becoming someone new. It’s about gently returning to yourself — with clarity, compassion, and steadiness.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="p-8 bg-cream-50 border border-cream-300 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 font-serif">1</div>
+                <h4 class="font-serif text-2xl text-charcoal-900">1-on-1 Confidential Sessions</h4>
+                <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                    Private, encrypted online video sessions from the comfort and privacy of your own safe space.
+                </p>
+            </div>
+
+            <div class="p-8 bg-cream-50 border border-cream-300 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 font-serif">2</div>
+                <h4 class="font-serif text-2xl text-charcoal-900">Client-Led Conversations</h4>
+                <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                    You set the pace. We talk about what matters to you without rigid formulas or forced agendas.
+                </p>
+            </div>
+
+            <div class="p-8 bg-cream-50 border border-cream-300 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 font-serif">3</div>
+                <h4 class="font-serif text-2xl text-charcoal-900">Emotional Clarity &amp; Grounding</h4>
+                <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                    Practical tools to calm emotional overwhelm, organize tangled thoughts, and regain clear decision-making.
+                </p>
+            </div>
+
+            <div class="p-8 bg-cream-50 border border-cream-300 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 font-serif">4</div>
+                <h4 class="font-serif text-2xl text-charcoal-900">Self-Worth &amp; Boundaries</h4>
+                <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                    Gentle guidance on establishing inner boundaries, stopping people-pleasing, and honoring your needs without guilt.
+                </p>
+            </div>
+
+            <div class="p-8 bg-cream-50 border border-cream-300 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 font-serif">5</div>
+                <h4 class="font-serif text-2xl text-charcoal-900">A Calm, Steady Process</h4>
+                <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                    No rushing, no high-pressure expectations. A respectful space where every emotion is welcomed with care.
+                </p>
+            </div>
+
+            <div class="p-8 bg-cream-50 border border-cream-300 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 font-serif">6</div>
+                <h4 class="font-serif text-2xl text-charcoal-900">Presence Over Advice</h4>
+                <p class="text-sm text-charcoal-700 font-light leading-relaxed">
+                    No fixing or unsolicited telling. Deep listening and honest presence that helps you discover your own self-trust.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="mt-12 p-8 bg-rose-50 border border-cream-300 text-center max-w-3xl mx-auto space-y-3">
+            <h4 class="font-serif text-2xl text-charcoal-900">You don’t have to be ready or certain to begin.</h4>
+            <p class="text-sm text-charcoal-700 font-light">You just have to be willing to show up as you are.</p>
+        </div>
+    </section>
+
+    <!-- Fees & Investment Section -->
+    <section id="fees" class="py-24 bg-cream-200/50 border-t border-cream-300 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto space-y-16">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold">Session Pricing</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900">Investment in Yourself</h2>
+                <p class="text-charcoal-700 font-light text-base sm:text-lg">
+                    Transparent, flexible session packages designed to support your journey at your pace.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="bg-cream-50 p-8 border border-cream-300 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-semibold block">Introductory</span>
+                        <h3 class="font-serif text-3xl text-charcoal-900">Discovery Session</h3>
+                        <p class="text-3xl font-serif text-taupe-700">1-on-1 Consultation</p>
+                        <ul class="space-y-3 text-sm text-charcoal-700 font-light pt-4 border-t border-cream-200">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> 45 Minutes Online Session</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Share your current situation</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Explore suitability &amp; goals</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Zero pressure commitment</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block text-center py-3 bg-cream-200 text-charcoal-900 uppercase text-xs tracking-widest font-semibold hover:bg-taupe-500 hover:text-white transition-colors">
+                        Book Discovery Call
+                    </a>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="bg-cream-50 p-8 border-2 border-taupe-500 shadow-md flex flex-col justify-between relative">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-taupe-600 text-white text-[10px] uppercase tracking-widest font-semibold">
+                        Most Requested
+                    </div>
+                    <div class="space-y-6">
+                        <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-semibold block">Individual Support</span>
+                        <h3 class="font-serif text-3xl text-charcoal-900">Single Therapy Session</h3>
+                        <p class="text-3xl font-serif text-taupe-700">1-on-1 Deep Session</p>
+                        <ul class="space-y-3 text-sm text-charcoal-700 font-light pt-4 border-t border-cream-200">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> 60 Minutes Focused Session</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> CBT / REBT / NLP Framework</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Relationship or Boundary Focus</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Personalized reflection prompts</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block text-center py-3.5 bg-charcoal-900 text-white uppercase text-xs tracking-widest font-semibold hover:bg-taupe-600 transition-colors">
+                        Schedule Single Session
+                    </a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-cream-50 p-8 border border-cream-300 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-semibold block">Deep Transformation</span>
+                        <h3 class="font-serif text-3xl text-charcoal-900">4-Session Shift Pack</h3>
+                        <p class="text-3xl font-serif text-taupe-700">Monthly Guidance</p>
+                        <ul class="space-y-3 text-sm text-charcoal-700 font-light pt-4 border-t border-cream-200">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> 4 x 60 Minute Sessions</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Continuous emotional support</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Deep boundary &amp; pattern work</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Priority booking flexibility</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block text-center py-3 bg-cream-200 text-charcoal-900 uppercase text-xs tracking-widest font-semibold hover:bg-taupe-500 hover:text-white transition-colors">
+                        Inquire Package
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900">Start Your Inner Shift Today</h2>
+                    <p class="text-charcoal-700 font-light text-base sm:text-lg leading-relaxed">
+                        Have a question or want to reserve a session? Reach out directly via the form or email below. All communications remain strictly confidential.
+                    </p>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-cream-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 shrink-0">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-lg text-charcoal-900">Direct Email</h4>
+                            <a href="mailto:sakshi.hearttoheart@gmail.com" class="text-sm text-taupe-700 font-medium hover:underline">
+                                sakshi.hearttoheart@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 shrink-0">
+                            <i class="fa-solid fa-video text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-lg text-charcoal-900">Session Mode</h4>
+                            <p class="text-sm text-charcoal-700 font-light">Online 1-on-1 Video Sessions (Zoom/Google Meet)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-cream-200 border border-cream-300">
+                    <h5 class="font-serif text-lg text-charcoal-900 mb-1">Confidentiality Assured</h5>
+                    <p class="text-xs text-charcoal-700 font-light leading-relaxed">
+                        Your personal details and session conversations are strictly confidential and treated with complete therapeutic privacy.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="lg:col-span-7 bg-cream-50 p-8 sm:p-12 border border-cream-300 shadow-sm">
+                
+                <div id="form-success" class="hidden mb-6 p-6 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1">
+                    <div class="flex items-center gap-2 font-serif text-lg text-emerald-900">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i> Message Sent Beautifully
+                    </div>
+                    <p class="font-light">Thank you, Sakshi will personally reply to your email within 24 hours.</p>
+                </div>
+
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-charcoal-800 font-semibold">Your Name *</label>
+                            <input type="text" required placeholder="Enter your full name" 
+                                   class="w-full px-4 py-3 bg-cream-100 border border-cream-300 text-charcoal-900 text-sm focus:outline-none focus:border-taupe-600">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-charcoal-800 font-semibold">Email Address *</label>
+                            <input type="email" required placeholder="sakshi@example.com" 
+                                   class="w-full px-4 py-3 bg-cream-100 border border-cream-300 text-charcoal-900 text-sm focus:outline-none focus:border-taupe-600">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-wider text-charcoal-800 font-semibold">Service Area of Interest</label>
+                        <select class="w-full px-4 py-3 bg-cream-100 border border-cream-300 text-charcoal-900 text-sm focus:outline-none focus:border-taupe-600">
+                            <option value="relationship">Relationship Counseling &amp; Guidance</option>
+                            <option value="cbt-rebt">CBT &amp; REBT Emotional Coaching</option>
+                            <option value="nlp">NLP &amp; Mindset Shift Coaching</option>
+                            <option value="boundaries">Boundary Work &amp; Self-Worth</option>
+                            <option value="discovery">Introductory Discovery Call</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-wider text-charcoal-800 font-semibold">Your Message / What brings you here? *</label>
+                        <textarea rows="5" required placeholder="Share whatever you feel comfortable sharing right now..." 
+                                  class="w-full px-4 py-3 bg-cream-100 border border-cream-300 text-charcoal-900 text-sm focus:outline-none focus:border-taupe-600"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-charcoal-900 text-cream-50 uppercase text-xs tracking-widest hover:bg-taupe-600 transition-colors">
+                        Send Confidential Message
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal-900 text-cream-200 pt-16 pb-12 px-6 md:px-12 border-t border-charcoal-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-charcoal-800">
+            
+            <div class="md:col-span-6 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-taupe-500 text-white flex items-center justify-center font-serif text-base italic">
+                        S
+                    </div>
+                    <span class="font-serif text-2xl text-white">Inner Shift</span>
+                </div>
+                <p class="text-xs uppercase tracking-widest text-taupe-400 font-semibold">Sakshi Sarkar • CBT, REBT &amp; NLP Coach</p>
+                <p class="text-sm text-cream-200/70 font-light leading-relaxed max-w-md pt-2">
+                    Gentle one-to-one emotional clarity, relationship guidance, and personal shift for women. You don’t have to perform strength here.
+                </p>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <h5 class="text-xs uppercase tracking-widest text-taupe-400 font-semibold">Quick Links</h5>
+                <ul class="space-y-2 text-sm text-cream-200/80 font-light">
+                    <li><a href="#about" class="hover:text-white transition-colors">Meet Sakshi</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Counseling Services</a></li>
+                    <li><a href="#why-inner-shift" class="hover:text-white transition-colors">Why Inner Shift</a></li>
+                    <li><a href="#fees" class="hover:text-white transition-colors">Session Fees</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Book Session</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <h5 class="text-xs uppercase tracking-widest text-taupe-400 font-semibold">Direct Contact</h5>
+                <p class="text-sm text-cream-200/80 font-light">
+                    Email: <a href="mailto:sakshi.hearttoheart@gmail.com" class="text-white hover:underline">sakshi.hearttoheart@gmail.com</a>
+                </p>
+                <p class="text-xs text-cream-200/50 pt-2 font-light leading-relaxed">
+                    *If you are experiencing an immediate crisis, please contact your local emergency mental health services helpline.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-cream-200/50 space-y-4 sm:space-y-0">
+            <p>&copy; 2026 Inner Shift by Sakshi Sarkar. All rights reserved.</p>
+            <p class="font-light">Confidential &amp; Safe Space for Women</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Header Scroll Styling
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 30) {
+                header.classList.add('glass-header', 'shadow-sm', 'py-3.5');
+                header.classList.remove('py-5');
+            } else {
+                header.classList.remove('glass-header', 'shadow-sm', 'py-3.5');
+                header.classList.add('py-5');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        }); 
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successAlert = document.getElementById('form-success');
+            const form = document.getElementById('contact-form');
+            
+            successAlert.classList.remove('hidden');
+            form.reset();
+            successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
