@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact &amp; Booking | Inner Shift</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fdfbf7', 100: '#f8f5ee', 200: '#f0e9dd', 300: '#e3d6c4' },
+                        taupe: { 400: '#caad95', 500: '#b49277', 600: '#9b765d', 700: '#7e5c46' },
+                        charcoal: { 700: '#4a4846', 800: '#333130', 900: '#22201f' }
+                    },
+                    fontFamily: { serif: ['Cormorant Garamond', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8f5ee; color: #333130; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+    </style>
+</head>
+<body class="bg-cream-100 text-charcoal-800 antialiased flex flex-col min-h-screen">
+
+    <header id="header" class="fixed top-0 left-0 w-full z-50 py-5 border-b border-cream-200 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-taupe-500 text-white flex items-center justify-center font-serif text-lg italic shadow-sm">S</div>
+                <div>
+                    <span class="font-serif text-2xl md:text-3xl text-charcoal-900 font-medium block leading-none">Inner Shift</span>
+                    <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-sans font-semibold">Sakshi Sarkar</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold tracking-widest uppercase text-charcoal-700">
+                <a href="index.html" class="hover:text-taupe-600 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-taupe-600 transition-colors">Meet Sakshi</a>
+                <a href="services.html" class="hover:text-taupe-600 transition-colors">Services</a>
+                <a href="why-inner-shift.html" class="hover:text-taupe-600 transition-colors">Why Inner Shift</a>
+                <a href="fees.html" class="hover:text-taupe-600 transition-colors">Fees</a>
+                <a href="contact.html" class="text-taupe-600 border-b border-taupe-600 pb-1">Contact</a>
+            </nav>
+            <a href="contact.html" class="px-6 py-2.5 bg-charcoal-900 text-cream-50 text-xs tracking-widest uppercase hover:bg-taupe-600 transition-all">Book Session</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-32 pb-24">
+        <section class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block">Get In Touch</span>
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900">Start Your Inner Shift Today</h1>
+                        <p class="text-charcoal-700 font-light text-base sm:text-lg leading-relaxed">
+                            Have a question or want to reserve a session? Reach out directly via the form or email below. All communications remain strictly confidential.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6 pt-4 border-t border-cream-300">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center text-taupe-700 shrink-0">
+                                <i class="fa-solid fa-envelope text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-lg text-charcoal-900">Direct Email</h4>
+                                <a href="mailto:sakshi.hearttoheart@gmail.com" class="text-sm text-taupe-700 font-medium hover:underline">sakshi.hearttoheart@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-cream-50 p-8 sm:p-12 border border-cream-300 shadow-sm">
+                    <div id="form-success" class="hidden mb-6 p-6 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1">
+                        <div class="flex items-center gap-2 font-serif text-lg text-emerald-900">
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> Message Sent
+                        </div>
+                        <p class="font-light">Thank you, Sakshi will personally reply to your email within 24 hours.</p>
+                    </div>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-charcoal-800 font-semibold">Your Name *</label>
+                                <input type="text" required placeholder="Enter your full name" class="w-full px-4 py-3 bg-cream-100 border border-cream-300 text-charcoal-900 text-sm focus:outline-none focus:border-taupe-600">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-charcoal-800 font-semibold">Email Address *</label>
+                                <input type="email" required placeholder="sakshi@example.com" class="w-full px-4 py-3 bg-cream-100 border border-cream-300 text-charcoal-900 text-sm focus:outline-none focus:border-taupe-600">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-charcoal-800 font-semibold">Your Message *</label>
+                            <textarea rows="5" required placeholder="Share whatever you feel comfortable sharing right now..." class="w-full px-4 py-3 bg-cream-100 border border-cream-300 text-charcoal-900 text-sm focus:outline-none focus:border-taupe-600"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-charcoal-900 text-cream-50 uppercase text-xs tracking-widest hover:bg-taupe-600 transition-colors">
+                            Send Confidential Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-charcoal-900 text-cream-200 pt-12 pb-8 px-6 text-center text-xs text-cream-200/50">
+        <p>&copy; 2026 Inner Shift by Sakshi Sarkar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('form-success').classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+</body>
+</html>

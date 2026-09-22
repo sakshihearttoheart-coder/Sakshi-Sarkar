@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Inner Shift | Sakshi Sarkar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fdfbf7', 100: '#f8f5ee', 200: '#f0e9dd', 300: '#e3d6c4' },
+                        taupe: { 400: '#caad95', 500: '#b49277', 600: '#9b765d', 700: '#7e5c46' },
+                        charcoal: { 700: '#4a4846', 800: '#333130', 900: '#22201f' }
+                    },
+                    fontFamily: { serif: ['Cormorant Garamond', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8f5ee; color: #333130; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+    </style>
+</head>
+<body class="bg-cream-100 text-charcoal-800 antialiased flex flex-col min-h-screen">
+
+    <header id="header" class="fixed top-0 left-0 w-full z-50 py-5 border-b border-cream-200 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-taupe-500 text-white flex items-center justify-center font-serif text-lg italic shadow-sm">S</div>
+                <div>
+                    <span class="font-serif text-2xl md:text-3xl text-charcoal-900 font-medium block leading-none">Inner Shift</span>
+                    <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-sans font-semibold">Sakshi Sarkar</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold tracking-widest uppercase text-charcoal-700">
+                <a href="index.html" class="hover:text-taupe-600 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-taupe-600 transition-colors">Meet Sakshi</a>
+                <a href="services.html" class="hover:text-taupe-600 transition-colors">Services</a>
+                <a href="why-inner-shift.html" class="text-taupe-600 border-b border-taupe-600 pb-1">Why Inner Shift</a>
+                <a href="fees.html" class="hover:text-taupe-600 transition-colors">Fees</a>
+                <a href="contact.html" class="hover:text-taupe-600 transition-colors">Contact</a>
+            </nav>
+            <a href="contact.html" class="px-6 py-2.5 bg-charcoal-900 text-cream-50 text-xs tracking-widest uppercase hover:bg-taupe-600 transition-all">Book Session</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-32 pb-24">
+        <section class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-8">
+                    <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block">The Story &amp; Purpose</span>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">Why I Created Inner Shift</h1>
+                    <div class="space-y-6 text-charcoal-700 font-light leading-relaxed text-lg">
+                        <p class="border-l-2 border-taupe-500 pl-6 italic font-serif text-2xl text-charcoal-900">
+                            "I created Inner Shift because I know what it feels like to carry too much — silently."
+                        </p>
+                        <p>To be the one who holds everything together on the outside, while feeling unsure, tired, or disconnected inside.</p>
+                        <p>I believe healing doesn’t happen through pressure or fixing. It happens when someone feels safe enough to slow down, feel honestly, and reconnect with themselves — at their own pace.</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="bg-cream-100 p-3 border border-cream-300 shadow-sm relative">
+                        <img src="Counselling Session Photo (1).png" alt="Inner Shift Counseling Session" class="w-full h-[460px] object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-charcoal-900 text-cream-200 pt-12 pb-8 px-6 text-center text-xs text-cream-200/50">
+        <p>&copy; 2026 Inner Shift by Sakshi Sarkar. All rights reserved.</p>
+    </footer>
+</body>
+</html>
