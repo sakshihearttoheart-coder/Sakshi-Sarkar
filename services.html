@@ -1,37 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services & How I Support You | Inner Shift - Sakshi Sarkar</title>
-    <!-- Tailwind CSS -->
+    <title>Services & Support | Inner Shift - Sakshi Sarkar</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            bg: '#FBF8F3',
-                            card: '#F6F2EB',
-                            border: '#E8E2D8',
-                            dark: '#1C1C1A',
-                            muted: '#6E675E',
-                            subtle: '#8C8479',
-                            tagBg: '#FAF5EE',
-                            accent: '#A67C52'
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#f8f5ee',
+                            200: '#f0e9dd',
+                            300: '#e3d6c4',
+                        },
+                        taupe: {
+                            400: '#caad95',
+                            500: '#b49277',
+                            600: '#9b765d',
+                            700: '#7e5c46',
+                        },
+                        rose: {
+                            50: '#faf2ef',
+                            100: '#f2e3de',
+                        },
+                        charcoal: {
+                            700: '#4a4846',
+                            800: '#333130',
+                            900: '#22201f',
                         }
                     },
                     fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
@@ -39,502 +47,343 @@
     </script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FBF8F3;
-            color: #1C1C1A;
-            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f5ee;
+            color: #333130;
         }
-        .font-heading {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, .font-serif-custom {
+            font-family: 'Cormorant Garamond', serif;
         }
-        /* Custom image frame styling matching screenshot */
-        .photo-frame-bg {
-            position: relative;
+        .soft-card {
+            background-color: #fdfbf7;
+            border: 1px solid #e3d6c4;
+            transition: all 0.3s ease;
         }
-        .photo-frame-bg::before {
-            content: '';
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            right: -16px;
-            bottom: -16px;
-            border: 1px solid #E3DCD1;
-            z-index: 0;
-            pointer-events: none;
+        .soft-card:hover {
+            border-color: #b49277;
+            transform: translateY(-2px);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .accordion-content.active {
+            max-height: 500px;
         }
     </style>
 </head>
-<body class="bg-brand-bg text-brand-dark antialiased flex flex-col min-h-screen">
+<body class="bg-cream-100 text-charcoal-800 antialiased selection:bg-taupe-500 selection:text-white pt-24">
 
-    <!-- HEADER / NAVIGATION (Exact match to screenshot) -->
-    <header class="sticky top-0 z-50 bg-[#FBF8F3]/95 backdrop-blur-sm border-b border-brand-border/60 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                
-                <!-- Logo Left -->
-                <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-9 h-9 rounded-full bg-[#D8CFC4] text-brand-dark flex items-center justify-center font-serif text-lg font-medium shadow-sm">
-                        S
-                    </div>
-                    <div>
-                        <span class="font-heading text-xl font-normal tracking-wide text-brand-dark block leading-none">Inner Shift</span>
-                        <span class="text-[9px] font-sans tracking-[0.25em] text-brand-subtle uppercase block mt-1">SAKSHI SARKAR</span>
-                    </div>
+    <!-- Navigation Header -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-cream-100/95 backdrop-blur-md border-b border-cream-200">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-taupe-500 text-white flex items-center justify-center font-serif text-lg italic shadow-sm">
+                    S
+                </div>
+                <div>
+                    <span class="font-serif text-2xl md:text-3xl text-charcoal-900 font-medium tracking-tight block leading-none">Inner Shift</span>
+                    <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-sans font-semibold">Sakshi Sarkar</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold tracking-widest uppercase text-charcoal-700">
+                <a href="index.html" class="hover:text-taupe-600 transition-colors">Home</a>
+                <a href="index.html#about" class="hover:text-taupe-600 transition-colors">Meet Sakshi</a>
+                <a href="services.html" class="text-taupe-600 border-b-2 border-taupe-600 pb-0.5">Services</a>
+                <a href="index.html#why-inner-shift" class="hover:text-taupe-600 transition-colors">Why Inner Shift</a>
+                <a href="index.html#support" class="hover:text-taupe-600 transition-colors">How I Support You</a>
+                <a href="#options" class="hover:text-taupe-600 transition-colors">Fees</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center">
+                <a href="#contact" class="px-6 py-2.5 bg-charcoal-900 text-cream-50 text-xs tracking-widest uppercase hover:bg-taupe-600 transition-all duration-300 rounded-none shadow-sm">
+                    Book a Session
                 </a>
-
-                <!-- Nav Links Center -->
-                <nav class="hidden lg:flex items-center space-x-7 text-[11px] font-medium tracking-[0.15em] text-brand-muted uppercase">
-                    <a href="#" class="hover:text-brand-dark transition-colors">HOME</a>
-                    <a href="#" class="hover:text-brand-dark transition-colors">MEET SAKSHI</a>
-                    <a href="#services" class="text-brand-dark font-semibold border-b border-brand-dark pb-0.5">SERVICES</a>
-                    <a href="#why" class="hover:text-brand-dark transition-colors">WHY INNER SHIFT</a>
-                    <a href="#how" class="hover:text-brand-dark transition-colors">HOW I SUPPORT YOU</a>
-                    <a href="#fees" class="hover:text-brand-dark transition-colors">FEES</a>
-                </nav>
-
-                <!-- Book Session Button Right -->
-                <div class="hidden sm:flex items-center">
-                    <a href="#fees" class="bg-brand-dark hover:bg-brand-muted text-white text-[11px] font-medium tracking-[0.18em] px-6 py-3 uppercase transition duration-200">
-                        BOOK A SESSION
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger Button -->
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-brand-dark focus:outline-none p-2" aria-label="Toggle Mobile Menu">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
             </div>
+
+            <!-- Mobile Menu Trigger -->
+            <button id="mobile-menu-btn" class="lg:hidden text-charcoal-900 p-2 focus:outline-none" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
         </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-brand-bg border-b border-brand-border px-6 pt-4 pb-6 space-y-3 text-[12px] font-medium tracking-[0.15em] uppercase">
-            <a href="#" class="block py-2 text-brand-muted hover:text-brand-dark border-b border-brand-border/40">HOME</a>
-            <a href="#" class="block py-2 text-brand-muted hover:text-brand-dark border-b border-brand-border/40">MEET SAKSHI</a>
-            <a href="#services" class="block py-2 text-brand-dark font-semibold border-b border-brand-border/40">SERVICES</a>
-            <a href="#why" class="block py-2 text-brand-muted hover:text-brand-dark border-b border-brand-border/40">WHY INNER SHIFT</a>
-            <a href="#how" class="block py-2 text-brand-muted hover:text-brand-dark border-b border-brand-border/40">HOW I SUPPORT YOU</a>
-            <a href="#fees" class="block py-2 text-brand-muted hover:text-brand-dark border-b border-brand-border/40">FEES</a>
-            <a href="#fees" class="inline-block w-full text-center mt-3 bg-brand-dark text-white py-3 tracking-[0.18em]">BOOK A SESSION</a>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 top-[70px] bg-cream-100 z-40 px-8 py-10 flex flex-col justify-between border-t border-cream-300">
+            <nav class="flex flex-col space-y-6 text-xl font-serif">
+                <a href="index.html" class="mobile-link text-charcoal-900 hover:text-taupe-600">Home</a>
+                <a href="index.html#about" class="mobile-link text-charcoal-900 hover:text-taupe-600">Meet Sakshi</a>
+                <a href="services.html" class="mobile-link text-taupe-600 font-bold">Services</a>
+                <a href="index.html#why-inner-shift" class="mobile-link text-charcoal-900 hover:text-taupe-600">Why Inner Shift</a>
+                <a href="index.html#support" class="mobile-link text-charcoal-900 hover:text-taupe-600">How I Support You</a>
+                <a href="#options" class="mobile-link text-charcoal-900 hover:text-taupe-600">Session Fees</a>
+                <a href="#contact" class="mobile-link text-charcoal-900 hover:text-taupe-600">Contact & Booking</a>
+            </nav>
+            <div class="pt-6 border-t border-cream-300">
+                <a href="#contact" class="mobile-link block text-center w-full py-3.5 bg-charcoal-900 text-cream-50 uppercase text-xs tracking-widest">
+                    Schedule Your Session
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="flex-grow">
-        <!-- HERO SECTION -->
-        <section class="py-12 md:py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                
-                <!-- Hero Left Column -->
-                <div class="lg:col-span-7 space-y-6">
-                    <!-- Eyebrow Tag Badge -->
-                    <div>
-                        <span class="inline-block text-[10px] sm:text-[11px] font-medium tracking-[0.18em] uppercase text-brand-subtle bg-brand-tagBg border border-brand-border px-3.5 py-1.5 rounded-full">
-                            ♦ CBT • REBT • NLP COACH & RELATIONSHIP GUIDANCE
-                        </span>
-                    </div>
-
-                    <!-- Main Headline -->
-                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl text-brand-dark font-normal leading-[1.15] tracking-tight">
-                        Services & Guidance Designed for Your <span class="italic font-normal">Inner Shift.</span>
-                    </h1>
-
-                    <!-- Subtitle -->
-                    <p class="text-brand-muted text-base sm:text-lg leading-relaxed max-w-xl font-light">
-                        Gentle one-to-one emotional clarity, relationship guidance, and personal shift for women who are tired of holding everything together alone.
-                    </p>
-
-                    <!-- CTA Buttons -->
-                    <div class="pt-4 flex flex-wrap items-center gap-4">
-                        <a href="#fees" class="bg-brand-dark hover:bg-brand-muted text-white text-[11px] font-medium tracking-[0.18em] px-7 py-3.5 uppercase transition duration-200">
-                            GET IN TOUCH
-                        </a>
-                        <a href="#services" class="border border-brand-border hover:border-brand-dark text-brand-dark text-[11px] font-medium tracking-[0.18em] px-7 py-3.5 uppercase transition duration-200 bg-transparent">
-                            EXPLORE SERVICES
-                        </a>
-                    </div>
-
-                    <!-- Minimalist Trust Highlights -->
-                    <div class="pt-8 border-t border-brand-border/60 grid grid-cols-3 gap-4 max-w-lg">
-                        <div>
-                            <span class="block font-heading text-lg text-brand-dark">1-on-1 Online</span>
-                            <span class="text-[11px] text-brand-subtle">Confidential Sessions</span>
-                        </div>
-                        <div>
-                            <span class="block font-heading text-lg text-brand-dark">Safe Space</span>
-                            <span class="text-[11px] text-brand-subtle">For Women</span>
-                        </div>
-                        <div>
-                            <span class="block font-heading text-lg text-brand-dark">Evidence-Based</span>
-                            <span class="text-[11px] text-brand-subtle">CBT, REBT & NLP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hero Right Column (Photo with framed style) -->
-                <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                    <div class="relative max-w-sm sm:max-w-md w-full photo-frame-bg pr-4 pb-4">
-                        <div class="relative z-10 bg-white p-3 border border-brand-border shadow-sm">
-                            <img 
-                                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" 
-                                alt="Sakshi Sarkar Counselor" 
-                                class="w-full h-[420px] sm:h-[480px] object-cover filter grayscale-[15%] contrast-[105%]"
-                            />
-                        </div>
-                    </div>
-                </div>
-
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 border-b border-cream-200">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-1 bg-cream-200 border border-cream-300 text-taupe-700 text-[11px] uppercase tracking-widest font-semibold mb-6">
+                CBT • REBT • NLP Guidance
             </div>
-        </section>
-
-        <!-- CORE SERVICES / AREAS OF SPECIALIZATION -->
-        <section id="services" class="py-16 md:py-24 bg-brand-card border-y border-brand-border/60">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-subtle uppercase block mb-2">AREAS OF FOCUS</span>
-                    <h2 class="font-heading text-3xl sm:text-4xl text-brand-dark font-normal">How We Can Work Together</h2>
-                    <div class="w-12 h-px bg-brand-subtle mx-auto mt-4"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <!-- Service Card 1 -->
-                    <div class="bg-brand-bg p-8 border border-brand-border flex flex-col justify-between hover:border-brand-dark transition duration-300">
-                        <div>
-                            <span class="text-[10px] tracking-[0.2em] text-brand-subtle uppercase block mb-3">FOCUS 01</span>
-                            <h3 class="font-heading text-2xl text-brand-dark font-normal mb-4">Emotional Clarity & Overwhelm</h3>
-                            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed font-light mb-6">
-                                Unpack overwhelming emotions, chronic anxiety, and burnout. Learn practical CBT tools to regulate your system and restore calm.
-                            </p>
-                        </div>
-                        <ul class="text-[11px] text-brand-subtle space-y-2 pt-4 border-t border-brand-border/60">
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Thought reframing (CBT)</li>
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Nervous system grounding</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service Card 2 -->
-                    <div class="bg-brand-bg p-8 border border-brand-border flex flex-col justify-between hover:border-brand-dark transition duration-300">
-                        <div>
-                            <span class="text-[10px] tracking-[0.2em] text-brand-subtle uppercase block mb-3">FOCUS 02</span>
-                            <h3 class="font-heading text-2xl text-brand-dark font-normal mb-4">Relationship & Boundary Guidance</h3>
-                            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed font-light mb-6">
-                                Navigate complex relationship dynamics, release people-pleasing habits, and establish loving, firm boundaries without guilt.
-                            </p>
-                        </div>
-                        <ul class="text-[11px] text-brand-subtle space-y-2 pt-4 border-t border-brand-border/60">
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Boundary setting tools</li>
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Communication models</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service Card 3 -->
-                    <div class="bg-brand-bg p-8 border border-brand-border flex flex-col justify-between hover:border-brand-dark transition duration-300">
-                        <div>
-                            <span class="text-[10px] tracking-[0.2em] text-brand-subtle uppercase block mb-3">FOCUS 03</span>
-                            <h3 class="font-heading text-2xl text-brand-dark font-normal mb-4">Self-Doubt & Identity Healing</h3>
-                            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed font-light mb-6">
-                                Break free from imposter syndrome, harsh self-criticism, and the need for external validation to step into authentic self-worth.
-                            </p>
-                        </div>
-                        <ul class="text-[11px] text-brand-subtle space-y-2 pt-4 border-t border-brand-border/60">
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Inner child & REBT integration</li>
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Self-compassion practices</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service Card 4 -->
-                    <div class="bg-brand-bg p-8 border border-brand-border flex flex-col justify-between hover:border-brand-dark transition duration-300">
-                        <div>
-                            <span class="text-[10px] tracking-[0.2em] text-brand-subtle uppercase block mb-3">FOCUS 04</span>
-                            <h3 class="font-heading text-2xl text-brand-dark font-normal mb-4">Life Shifts & Career Transitions</h3>
-                            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed font-light mb-6">
-                                Gain confidence and strategic direction during major life changes, career moves, or identity transitions with NLP techniques.
-                            </p>
-                        </div>
-                        <ul class="text-[11px] text-brand-subtle space-y-2 pt-4 border-t border-brand-border/60">
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Goal & timeline alignment</li>
-                            <li class="flex items-center gap-2"><span class="text-brand-accent">✦</span> Mindset shift protocols</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SESSION FEES & INVESTMENTS -->
-        <section id="fees" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-subtle uppercase block mb-2">SESSION INVESTMENT</span>
-                <h2 class="font-heading text-3xl sm:text-4xl text-brand-dark font-normal">Choose Your Preferred Format</h2>
-                <p class="text-brand-muted text-xs sm:text-sm font-light mt-3">All sessions are conducted 1-on-1 online via private video calls.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-                
-                <!-- Package 1 -->
-                <div class="bg-brand-card p-8 border border-brand-border flex flex-col justify-between relative">
-                    <div>
-                        <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-subtle uppercase block mb-2">SINGLE OFFERING</span>
-                        <h3 class="font-heading text-2xl text-brand-dark font-normal mb-2">1-on-1 Clarity Session</h3>
-                        <p class="text-brand-muted text-xs font-light leading-relaxed mb-6">Best for addressing an immediate dilemma or experiencing a introductory session.</p>
-                        
-                        <div class="py-4 border-y border-brand-border/60 mb-6">
-                            <span class="font-heading text-3xl text-brand-dark">50 Minutes</span>
-                            <span class="block text-[11px] text-brand-subtle uppercase tracking-wider mt-1">Single Online Session</span>
-                        </div>
-
-                        <ul class="space-y-3 text-xs text-brand-muted font-light mb-8">
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">―</span> Focus on one pressing challenge
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">―</span> Evidence-based CBT/REBT exercises
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">―</span> Written key takeaway summary
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="#" class="block w-full text-center bg-brand-dark hover:bg-brand-muted text-white text-[11px] font-medium tracking-[0.18em] py-3.5 uppercase transition">
-                        BOOK SINGLE SESSION
-                    </a>
-                </div>
-
-                <!-- Package 2 (Featured) -->
-                <div class="bg-white p-8 border-2 border-brand-dark flex flex-col justify-between relative shadow-sm lg:-translate-y-2">
-                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-dark text-white text-[9px] font-medium tracking-[0.2em] px-4 py-1 uppercase">
-                        RECOMMENDED JOURNEY
-                    </div>
-
-                    <div>
-                        <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-subtle uppercase block mb-2 mt-2">4-WEEK PROGRAM</span>
-                        <h3 class="font-heading text-2xl text-brand-dark font-normal mb-2">The Inner Shift Journey</h3>
-                        <p class="text-brand-muted text-xs font-light leading-relaxed mb-6">Designed for real emotional transformation, rewiring mindset patterns, and accountability.</p>
-                        
-                        <div class="py-4 border-y border-brand-border mb-6">
-                            <span class="font-heading text-3xl text-brand-dark">4 Sessions</span>
-                            <span class="block text-[11px] text-brand-subtle uppercase tracking-wider mt-1">4 x 50-Min Weekly Sessions + Chat Support</span>
-                        </div>
-
-                        <ul class="space-y-3 text-xs text-brand-muted font-light mb-8">
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">✦</span> Weekly 1-on-1 virtual counseling
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">✦</span> Text/Voice support between sessions
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">✦</span> Customized reflection worksheets & prompts
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">✦</span> Long-term goal & habit integration
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="#" class="block w-full text-center bg-brand-dark hover:bg-brand-muted text-white text-[11px] font-medium tracking-[0.18em] py-3.5 uppercase transition">
-                        BEGIN 4-WEEK JOURNEY
-                    </a>
-                </div>
-
-                <!-- Package 3 -->
-                <div class="bg-brand-card p-8 border border-brand-border flex flex-col justify-between relative">
-                    <div>
-                        <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-subtle uppercase block mb-2">COMPLIMENTARY</span>
-                        <h3 class="font-heading text-2xl text-brand-dark font-normal mb-2">15-Min Discovery Call</h3>
-                        <p class="text-brand-muted text-xs font-light leading-relaxed mb-6">A brief initial chat to see if my counseling approach feels right for you.</p>
-                        
-                        <div class="py-4 border-y border-brand-border/60 mb-6">
-                            <span class="font-heading text-3xl text-brand-dark">15 Minutes</span>
-                            <span class="block text-[11px] text-brand-subtle uppercase tracking-wider mt-1">Free Phone / Audio Consultation</span>
-                        </div>
-
-                        <ul class="space-y-3 text-xs text-brand-muted font-light mb-8">
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">―</span> Discuss your primary needs briefly
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">―</span> Understand the counseling methodology
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-brand-dark">―</span> Zero commitment or pressure
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="#" class="block w-full text-center border border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white text-[11px] font-medium tracking-[0.18em] py-3.5 uppercase transition">
-                        SCHEDULE FREE CALL
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- THE PROCESS (WHAT TO EXPECT) -->
-        <section id="how" class="py-16 md:py-24 bg-brand-card border-t border-brand-border/60">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-subtle uppercase block mb-2">HOW IT WORKS</span>
-                    <h2 class="font-heading text-3xl sm:text-4xl text-brand-dark font-normal">What to Expect During Sessions</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Step 1 -->
-                    <div class="bg-brand-bg p-8 border border-brand-border text-left relative">
-                        <span class="font-heading text-4xl text-brand-subtle/50 block mb-4">01</span>
-                        <h3 class="font-heading text-2xl text-brand-dark font-normal mb-3">Safe & Confidential Space</h3>
-                        <p class="text-brand-muted text-xs sm:text-sm font-light leading-relaxed">
-                            A non-judgmental environment where you can speak your raw truth without fear of being misunderstood or evaluated.
-                        </p>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="bg-brand-bg p-8 border border-brand-border text-left relative">
-                        <span class="font-heading text-4xl text-brand-subtle/50 block mb-4">02</span>
-                        <h3 class="font-heading text-2xl text-brand-dark font-normal mb-3">Unpacking Root Patterns</h3>
-                        <p class="text-brand-muted text-xs sm:text-sm font-light leading-relaxed">
-                            We move past surface level symptoms to uncover negative beliefs, cognitive distortions, and emotional triggers.
-                        </p>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="bg-brand-bg p-8 border border-brand-border text-left relative">
-                        <span class="font-heading text-4xl text-brand-subtle/50 block mb-4">03</span>
-                        <h3 class="font-heading text-2xl text-brand-dark font-normal mb-3">Actionable Integration</h3>
-                        <p class="text-brand-muted text-xs sm:text-sm font-light leading-relaxed">
-                            Leave every session with tangible cognitive tools, communication scripts, and self-care steps for daily life.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FREQUENTLY ASKED QUESTIONS -->
-        <section class="py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14">
-                <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-subtle uppercase block mb-2">COMMON QUESTIONS</span>
-                <h2 class="font-heading text-3xl sm:text-4xl text-brand-dark font-normal">Frequently Asked Questions</h2>
-            </div>
-
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="border border-brand-border bg-brand-bg">
-                    <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none">
-                        <span class="font-heading text-lg text-brand-dark">Is online counseling as effective as in-person sessions?</span>
-                        <span class="text-brand-subtle text-sm font-light ml-4 transition-transform duration-200">+</span>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-brand-muted font-light leading-relaxed border-t border-brand-border/40 pt-3">
-                        Yes, absolutely. Virtual sessions allow you to connect from the safety and privacy of your home. Many clients find it easier to open up emotionally in their own comfortable surroundings.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="border border-brand-border bg-brand-bg">
-                    <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none">
-                        <span class="font-heading text-lg text-brand-dark">How do I know if CBT, REBT, or NLP is right for me?</span>
-                        <span class="text-brand-subtle text-sm font-light ml-4 transition-transform duration-200">+</span>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-brand-muted font-light leading-relaxed border-t border-brand-border/40 pt-3">
-                        You don't need to know which modality fits you best beforehand. During our sessions, Sakshi customizes techniques based on your specific personality, emotional state, and personal goals.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="border border-brand-border bg-brand-bg">
-                    <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none">
-                        <span class="font-heading text-lg text-brand-dark">Are our conversations completely confidential?</span>
-                        <span class="text-brand-subtle text-sm font-light ml-4 transition-transform duration-200">+</span>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-brand-muted font-light leading-relaxed border-t border-brand-border/40 pt-3">
-                        Strict confidentiality is fundamental to our practice. Everything shared during your counseling sessions remains entirely private between you and Sakshi Sarkar.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="border border-brand-border bg-brand-bg">
-                    <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none">
-                        <span class="font-heading text-lg text-brand-dark">How do I get started with my first session?</span>
-                        <span class="text-brand-subtle text-sm font-light ml-4 transition-transform duration-200">+</span>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-brand-muted font-light leading-relaxed border-t border-brand-border/40 pt-3">
-                        Simply click on "Book A Session" or schedule a free 15-minute discovery call using the options above. You will receive an instant email confirmation with your private meeting link.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER CTA BANNER -->
-        <section class="py-20 bg-brand-dark text-white text-center">
-            <div class="max-w-3xl mx-auto px-4">
-                <span class="text-[10px] font-semibold tracking-[0.25em] text-brand-subtle uppercase block mb-3">TAKE THE FIRST STEP</span>
-                <h2 class="font-heading text-3xl sm:text-5xl font-normal mb-6">Healing Begins When You Feel Safe Enough to Be Yourself.</h2>
-                <a href="#fees" class="inline-block bg-white text-brand-dark hover:bg-brand-card text-[11px] font-medium tracking-[0.18em] px-8 py-4 uppercase transition duration-200">
-                    BOOK YOUR SESSION TODAY
+            <h1 class="text-4xl md:text-6xl font-serif text-charcoal-900 font-medium leading-tight mb-6">
+                Personalized Support For Your Emotional Healing & Growth
+            </h1>
+            <p class="text-base md:text-lg text-charcoal-700 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+                Navigating life transitions, anxiety, or relationship stress doesn't have to be done alone. Discover gentle, structured support tailored to your unique journey.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#options" class="px-8 py-3.5 bg-charcoal-900 text-cream-50 text-xs tracking-widest uppercase hover:bg-taupe-600 transition-all shadow-sm">
+                    View Session Options
+                </a>
+                <a href="#contact" class="px-8 py-3.5 border border-charcoal-900 text-charcoal-900 text-xs tracking-widest uppercase hover:bg-cream-200 transition-all">
+                    Book Discovery Call
                 </a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-brand-bg border-t border-brand-border text-brand-muted text-xs py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-                
-                <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-[#D8CFC4] text-brand-dark flex items-center justify-center font-serif text-sm">
-                        S
+    <!-- Areas of Specialization -->
+    <section class="py-20 max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block mb-2">How I Help</span>
+            <h2 class="text-3xl md:text-5xl font-serif text-charcoal-900">Areas of Specialization</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-full bg-cream-200 text-taupe-700 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-heart"></i>
                     </div>
+                    <h3 class="text-2xl font-serif text-charcoal-900 mb-3">Relationship Clarity</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed mb-6">
+                        Break free from repetitive toxic patterns, establish healthy boundaries, and rebuild trust in yourself and your relationships.
+                    </p>
+                </div>
+                <span class="text-xs uppercase tracking-wider text-taupe-600 font-semibold">REBT & NLP Based</span>
+            </div>
+
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-full bg-cream-200 text-taupe-700 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-charcoal-900 mb-3">Anxiety & Overwhelm</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed mb-6">
+                        Learn CBT-based cognitive reframing techniques to ease chronic overthinking, stress, and perfectionist pressures.
+                    </p>
+                </div>
+                <span class="text-xs uppercase tracking-wider text-taupe-600 font-semibold">CBT Framework</span>
+            </div>
+
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-full bg-cream-200 text-taupe-700 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-charcoal-900 mb-3">Self-Doubt & Confidence</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed mb-6">
+                        Overcome imposter syndrome, heal your internal inner critic, and build genuine self-worth rooted in self-compassion.
+                    </p>
+                </div>
+                <span class="text-xs uppercase tracking-wider text-taupe-600 font-semibold">Self-Discovery</span>
+            </div>
+
+            <div class="soft-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-full bg-cream-200 text-taupe-700 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-charcoal-900 mb-3">Life Transitions</h3>
+                    <p class="text-sm text-charcoal-700 font-light leading-relaxed mb-6">
+                        Navigate major career changes, life moves, or personal identity shifts with confidence, structure, and emotional safety.
+                    </p>
+                </div>
+                <span class="text-xs uppercase tracking-wider text-taupe-600 font-semibold">Personal Growth</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Service Tiers -->
+    <section id="options" class="py-20 bg-cream-50 border-y border-cream-200">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block mb-2">Session Investment</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-charcoal-900">Choose Your Path</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Option 1 -->
+                <div class="bg-cream-100 p-8 border border-cream-300 flex flex-col justify-between">
                     <div>
-                        <span class="font-heading text-lg text-brand-dark block leading-none">Inner Shift</span>
-                        <span class="text-[8px] tracking-[0.2em] text-brand-subtle uppercase block mt-1">SAKSHI SARKAR</span>
+                        <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-semibold block mb-2">Single Session</span>
+                        <h3 class="text-2xl font-serif text-charcoal-900 mb-2">1-on-1 Clarity Session</h3>
+                        <p class="text-sm text-charcoal-700 font-light mb-6">Ideal for addressing an immediate dilemma or experiencing a single supportive consultation.</p>
+                        <div class="text-3xl font-serif text-charcoal-900 mb-6">50 Mins <span class="text-sm font-sans text-charcoal-700">/ Session</span></div>
+                        <ul class="space-y-3 text-sm text-charcoal-700 mb-8 font-light">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Confidential video call</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Focused problem-solving</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Post-session actionable notes</li>
+                        </ul>
                     </div>
+                    <a href="#contact" class="block text-center py-3 border border-charcoal-900 text-charcoal-900 uppercase text-xs tracking-widest hover:bg-charcoal-900 hover:text-cream-50 transition-all">
+                        Book Session
+                    </a>
                 </div>
 
-                <!-- Quick Nav -->
-                <div class="flex flex-wrap justify-center gap-6 text-[11px] tracking-[0.15em] uppercase">
-                    <a href="#" class="hover:text-brand-dark">HOME</a>
-                    <a href="#" class="hover:text-brand-dark">MEET SAKSHI</a>
-                    <a href="#services" class="hover:text-brand-dark">SERVICES</a>
-                    <a href="#fees" class="hover:text-brand-dark">FEES</a>
+                <!-- Option 2 (Featured) -->
+                <div class="bg-cream-50 p-8 border-2 border-taupe-500 shadow-lg flex flex-col justify-between relative">
+                    <span class="absolute -top-3 right-6 bg-taupe-500 text-white text-[10px] uppercase tracking-widest px-3 py-1 font-semibold">Recommended</span>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-semibold block mb-2">Deep Work</span>
+                        <h3 class="text-2xl font-serif text-charcoal-900 mb-2">4-Week Inner Shift Journey</h3>
+                        <p class="text-sm text-charcoal-700 font-light mb-6">A dedicated 4-week program for deep transformation, healing, and lasting emotional habit change.</p>
+                        <div class="text-3xl font-serif text-charcoal-900 mb-6">4 Sessions <span class="text-sm font-sans text-charcoal-700">(Weekly)</span></div>
+                        <ul class="space-y-3 text-sm text-charcoal-700 mb-8 font-light">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> 4 x 50-Min Weekly Video Sessions</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> WhatsApp/Email Check-ins</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Custom CBT/REBT Worksheets</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Continuous Accountability</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="block text-center py-3 bg-charcoal-900 text-cream-50 uppercase text-xs tracking-widest hover:bg-taupe-600 transition-all">
+                        Start Your Journey
+                    </a>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="bg-cream-100 p-8 border border-cream-300 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-widest text-taupe-700 font-semibold block mb-2">First Step</span>
+                        <h3 class="text-2xl font-serif text-charcoal-900 mb-2">Discovery Consultation</h3>
+                        <p class="text-sm text-charcoal-700 font-light mb-6">A short call to discuss your goals, answer questions, and check if we are a mutual fit.</p>
+                        <div class="text-3xl font-serif text-charcoal-900 mb-6">15 Mins <span class="text-sm font-sans text-charcoal-700">/ Intro Call</span></div>
+                        <ul class="space-y-3 text-sm text-charcoal-700 mb-8 font-light">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Quick introductory consultation</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Share your current challenges</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-taupe-600 text-xs"></i> Zero commitment required</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="block text-center py-3 border border-charcoal-900 text-charcoal-900 uppercase text-xs tracking-widest hover:bg-charcoal-900 hover:text-cream-50 transition-all">
+                        Schedule Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block mb-2">Questions</span>
+            <h2 class="text-3xl md:text-5xl font-serif text-charcoal-900">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4">
+            <div class="soft-card p-6 cursor-pointer accordion-header">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-serif text-xl text-charcoal-900">Are online counseling sessions as effective as in-person ones?</h3>
+                    <i class="fa-solid fa-chevron-down text-taupe-600 text-sm transition-transform"></i>
+                </div>
+                <div class="accordion-content mt-4 text-sm text-charcoal-700 font-light leading-relaxed">
+                    Yes, absolutely! Online sessions allow you to connect from the comfort and privacy of your own safe space, saving travel time while maintaining full confidentiality and impact.
                 </div>
             </div>
 
-            <div class="border-t border-brand-border/60 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-subtle gap-4">
-                <p>&copy; 2026 Inner Shift with Sakshi Sarkar. All rights reserved.</p>
-                <p class="italic text-center sm:text-right">
-                    *Counseling & Life Guidance Services. Not a replacement for emergency psychiatric care.
-                </p>
+            <div class="soft-card p-6 cursor-pointer accordion-header">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-serif text-xl text-charcoal-900">How do I know how many sessions I will need?</h3>
+                    <i class="fa-solid fa-chevron-down text-taupe-600 text-sm transition-transform"></i>
+                </div>
+                <div class="accordion-content mt-4 text-sm text-charcoal-700 font-light leading-relaxed">
+                    Everyone’s journey is different. While some find immediate clarity in 1–2 single sessions, lasting emotional habits generally develop over a 4-to-8 week period.
+                </div>
             </div>
+
+            <div class="soft-card p-6 cursor-pointer accordion-header">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-serif text-xl text-charcoal-900">Is everything we discuss confidential?</h3>
+                    <i class="fa-solid fa-chevron-down text-taupe-600 text-sm transition-transform"></i>
+                </div>
+                <div class="accordion-content mt-4 text-sm text-charcoal-700 font-light leading-relaxed">
+                    100% yes. Privacy and trust are the absolute foundation of my practice. All communications, notes, and session details remain strictly confidential.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / Contact Form Section -->
+    <section id="contact" class="py-20 bg-cream-200 border-t border-cream-300">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-xs uppercase tracking-widest text-taupe-700 font-semibold block mb-2">Get In Touch</span>
+            <h2 class="text-3xl md:text-5xl font-serif text-charcoal-900 mb-6">Begin Your Inner Shift</h2>
+            <p class="text-sm md:text-base text-charcoal-700 font-light mb-10 max-w-lg mx-auto">
+                Fill out the brief form below to request your session. Sakshi will get back to you within 24 hours.
+            </p>
+
+            <form class="space-y-4 text-left">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Your Full Name" class="w-full px-5 py-3.5 bg-cream-50 border border-cream-300 focus:outline-none focus:border-taupe-600 text-sm">
+                    <input type="email" placeholder="Your Email Address" class="w-full px-5 py-3.5 bg-cream-50 border border-cream-300 focus:outline-none focus:border-taupe-600 text-sm">
+                </div>
+                <select class="w-full px-5 py-3.5 bg-cream-50 border border-cream-300 focus:outline-none focus:border-taupe-600 text-sm text-charcoal-700">
+                    <option>Select Preferred Support Type</option>
+                    <option>1-on-1 Single Clarity Session</option>
+                    <option>4-Week Inner Shift Package</option>
+                    <option>Free 15-Min Discovery Call</option>
+                </select>
+                <textarea rows="4" placeholder="Briefly share what you'd like guidance with..." class="w-full px-5 py-3.5 bg-cream-50 border border-cream-300 focus:outline-none focus:border-taupe-600 text-sm"></textarea>
+                
+                <button type="button" class="w-full py-4 bg-charcoal-900 text-cream-50 uppercase text-xs tracking-widest hover:bg-taupe-600 transition-all font-semibold">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-charcoal-900 text-cream-200 text-xs border-t border-charcoal-800">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+            <p class="font-serif text-lg text-cream-50">Inner Shift • Sakshi Sarkar</p>
+            <p class="text-cream-300 font-light max-w-md mx-auto text-[11px] leading-relaxed">
+                Disclaimer: Counseling services are meant for personal guidance, self-discovery, and emotional support. They do not substitute medical or psychiatric treatment.
+            </p>
+            <p class="text-cream-300/60 pt-4">&copy; Inner Shift with Sakshi Sarkar. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
-        // Interactive Accordion
-        document.querySelectorAll('.faq-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const indicator = button.querySelector('span:last-child');
-
-                content.classList.toggle('hidden');
-                
-                if (content.classList.contains('hidden')) {
-                    indicator.textContent = '+';
-                } else {
-                    indicator.textContent = '−';
-                }
-            });
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
         });
 
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // FAQ accordion toggle
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.querySelector('.accordion-content');
+                const icon = header.querySelector('i');
+                
+                content.classList.toggle('active');
+                if(content.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
         });
     </script>
 </body>
